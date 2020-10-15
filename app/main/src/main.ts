@@ -279,6 +279,7 @@ ipcMain.on(SET_ALWAYS_ON_TOP, (e, { alwaysOnTop }) => {
 ipcMain.on(SET_FULLSCREEN_BREAK, (e, args) => {
 	const { shouldFullscreen, alwaysOnTop } = args;
 
+
 	if (shouldFullscreen) {
 		win?.show();
 		win?.focus();
@@ -289,6 +290,10 @@ ipcMain.on(SET_FULLSCREEN_BREAK, (e, args) => {
 		win?.setVisibleOnAllWorkspaces(true);
 
 		globalShortcut.unregister("Alt+Shift+H");
+
+
+		// TODO make code to check which screen is fullscreened to and make more windows.
+		// Try to make it so they all show timers but copy the redux state from the initial one.
 
 		if (!win?.isVisible()) {
 			win?.show();
